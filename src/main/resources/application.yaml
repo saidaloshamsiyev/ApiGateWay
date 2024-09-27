@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: CHANNEL-SERVICE
+          uri: lb://CHANNEL-SERVICE
+          predicates:
+            - Path=/api/channel/**
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**
+        - id: VIDEO-SERVICE
+          uri: lb://VIDEO-SERVICE
+          predicates:
+            - Path=/api/video/**
+
+
+
+
+      default-filters:
+        - name: JwtFilter
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:8761/eureka/}
+
+
+jwt:
+  secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
+
+
+
