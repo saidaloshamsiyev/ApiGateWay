@@ -1,0 +1,17 @@
+services:
+  eureka:
+    build: ./EurekaService
+    ports:
+      - "8761:8761"
+
+
+  api-gateway:
+      build: ./ApiGateWay
+      ports:
+        - "8080:8080"
+
+      environment:
+          EUREKA_URI: http://eureka:8761/eureka/
+      depends_on:
+        - eureka
+
