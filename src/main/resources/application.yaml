@@ -23,8 +23,6 @@ spring:
             - Path=/api/video/**
 
 
-
-
       default-filters:
         - name: JwtFilter
 
