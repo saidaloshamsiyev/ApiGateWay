@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 public class JwtService {
 
     @Value("${jwt.secret}")
-    private String token;
+    private String secret;
 
 
     public Claims parseToken(String token) {
         return Jwts.parser()
-                .verifyWith(Keys.hmacShaKeyFor(token.getBytes()))
+                .verifyWith(Keys.hmacShaKeyFor(secret.getBytes()))
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
