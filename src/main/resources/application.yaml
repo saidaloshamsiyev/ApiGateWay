@@ -21,7 +21,6 @@ spring:
           uri: lb://VIDEO-SERVICE
           predicates:
             - Path=/api/video/**
-
       default-filters:
         - name: JwtFilter
 
@@ -30,7 +29,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:8761/eureka/}
 
 jwt:
   secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
