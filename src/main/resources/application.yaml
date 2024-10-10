@@ -12,7 +12,8 @@ spring:
         - id: CHANNEL-SERVICE
           uri: lb://CHANNEL-SERVICE
           predicates:
-            - Path=/api/channel/**
+            - Path=/api/channel/**,/api/subscribe/**
+
         - id: AUTH-SERVICE
           uri: lb://AUTH-SERVICE
           predicates:
