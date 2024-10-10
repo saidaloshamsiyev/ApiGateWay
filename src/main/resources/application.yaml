@@ -12,7 +12,8 @@ spring:
         - id: CHANNEL-SERVICE
           uri: lb://CHANNEL-SERVICE
           predicates:
-            - Path=/api/channel/**
+            - Path=/api/channel/**,/api/subscribe/**
+
         - id: AUTH-SERVICE
           uri: lb://AUTH-SERVICE
           predicates:
@@ -21,17 +22,15 @@ spring:
           uri: lb://VIDEO-SERVICE
           predicates:
             - Path=/api/video/**
-
-
       default-filters:
         - name: JwtFilter
 
-
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     service-url:
       defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:8761/eureka/}
-
 
 jwt:
   secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
