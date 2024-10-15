@@ -25,6 +25,7 @@ spring:
       default-filters:
         - name: JwtFilter
 
+
 eureka:
   client:
     service-url:
