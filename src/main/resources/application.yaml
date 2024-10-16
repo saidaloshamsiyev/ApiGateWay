@@ -22,8 +22,11 @@ spring:
           uri: lb://VIDEO-SERVICE
           predicates:
             - Path=/api/video/**
+
+
       default-filters:
         - name: JwtFilter
+
 
 eureka:
   instance:
@@ -34,6 +37,5 @@ eureka:
 
 jwt:
   secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
-
 
 

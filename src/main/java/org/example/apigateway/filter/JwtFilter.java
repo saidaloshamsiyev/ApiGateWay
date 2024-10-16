@@ -17,11 +17,9 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
     public JwtFilter(JwtService jwtService) {
         super(Config.class);
         this.jwtService = jwtService;
-
     }
 
     public static class Config {
-
     }
 
     @Override
@@ -32,12 +30,10 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
                 return chain.filter(exchange);
             }
             String token = authHeader.substring(7);
-
             try {
-
                 Claims claims = jwtService.parseToken(token);
-
                 String username = claims.getSubject();
+
                 exchange.getRequest().mutate()
                         .header("X-Username", username)
                         .build();
