@@ -1,6 +1,7 @@
 server:
   port: 8080
 
+
 spring:
   main:
     web-application-type: reactive
@@ -13,7 +14,6 @@ spring:
           uri: lb://CHANNEL-SERVICE
           predicates:
             - Path=/api/channel/**,/api/subscribe/**
-
         - id: AUTH-SERVICE
           uri: lb://AUTH-SERVICE
           predicates:
@@ -29,11 +29,12 @@ spring:
 
 
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     service-url:
       defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:8761/eureka/}
+  instance:
+    preferIpAddress: true
+
 
 jwt:
   secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
