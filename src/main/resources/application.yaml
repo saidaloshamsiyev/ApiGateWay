@@ -37,6 +37,7 @@ eureka:
   instance:
     preferIpAddress: true
 
+
 jwt:
   secret: qwefklsdfj3roif134adsj14fdslkjf1234fiodwq
 
