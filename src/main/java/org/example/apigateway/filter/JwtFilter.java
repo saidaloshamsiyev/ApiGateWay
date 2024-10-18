@@ -22,6 +22,7 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
     public static class Config {
     }
 
+
     @Override
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
