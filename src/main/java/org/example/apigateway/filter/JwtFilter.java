@@ -24,6 +24,7 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
 
     }
 
+
     @Override
     public GatewayFilter apply(Config config) {
         return (exchange, chain) -> {
