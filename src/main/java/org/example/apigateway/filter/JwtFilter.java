@@ -36,6 +36,7 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
                 String username = claims.getSubject();
 
                 exchange.getRequest().mutate()
+
                         .header("X-Username", username)
                         .build();
             } catch (Exception e) {
