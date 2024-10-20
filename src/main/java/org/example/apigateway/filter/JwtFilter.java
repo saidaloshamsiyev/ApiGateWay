@@ -39,11 +39,17 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
 
                         .header("X-Username", username)
                         .build();
+//                exchange.mutate().request(exchange.getRequest().mutate()
+//
+//                        .header("X-Username", username)
+//                        .build());
             } catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid JWT  token");
             }
             return chain.filter(exchange);
         };
     }
+
+
 
 }
