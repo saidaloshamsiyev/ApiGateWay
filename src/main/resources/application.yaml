@@ -25,7 +25,10 @@ spring:
         - id: INTERACTION-SERVICE
           uri: lb://INTERACTION-SERVICE
           predicates:
-            - Path=/commit/**
+            - Path=/api/commit/**
+            - Path=/api/like/**
+            - Path=/api/history/**
+            - Path=/api/report/**
       default-filters:
         - name: JwtFilter
 
